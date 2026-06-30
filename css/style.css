@@ -985,3 +985,98 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
 @media (min-width: 1280px) {
   .food-grid { grid-template-columns: repeat(4, 1fr); }
 }
+
+
+/* ---------------------------------------------------------------------
+   WHATSAPP FLOATING BUTTON
+--------------------------------------------------------------------- */
+.whatsapp-float {
+  position: fixed;
+  right: 1.25rem;
+  bottom: 1.25rem;
+  z-index: 950;
+  display: inline-flex;
+  align-items: center;
+  gap: 0;
+  height: 58px;
+  padding: 0;
+  width: 58px;
+  border-radius: 999px;
+  background: #25D366;
+  color: #fff;
+  text-decoration: none;
+  font-family: var(--f-body);
+  font-weight: 600;
+  box-shadow: 0 10px 26px rgba(37, 211, 102, 0.45);
+  overflow: hidden;
+  transition: width var(--dur-med) var(--ease-soft),
+              padding var(--dur-med) var(--ease-soft),
+              transform var(--dur-fast) var(--ease-soft),
+              box-shadow var(--dur-fast) var(--ease-soft);
+}
+
+.whatsapp-float i {
+  flex: 0 0 58px;
+  display: grid;
+  place-items: center;
+  width: 58px;
+  height: 58px;
+  font-size: 1.7rem;
+}
+
+.whatsapp-float-label {
+  white-space: nowrap;
+  opacity: 0;
+  max-width: 0;
+  transition: opacity var(--dur-med) var(--ease-soft),
+              max-width var(--dur-med) var(--ease-soft),
+              padding var(--dur-med) var(--ease-soft);
+}
+
+.whatsapp-float:hover,
+.whatsapp-float:focus-visible {
+  width: 210px;
+  transform: translateY(-2px);
+  box-shadow: 0 14px 32px rgba(37, 211, 102, 0.55);
+  outline: none;
+}
+
+.whatsapp-float:hover .whatsapp-float-label,
+.whatsapp-float:focus-visible .whatsapp-float-label {
+  opacity: 1;
+  max-width: 160px;
+  padding-right: 1.1rem;
+}
+
+@media (max-width: 600px) {
+  .whatsapp-float {
+    right: 1rem;
+    bottom: 1rem;
+    height: 54px;
+    width: 54px;
+  }
+  .whatsapp-float i {
+    flex-basis: 54px;
+    width: 54px;
+    height: 54px;
+    font-size: 1.55rem;
+  }
+  /* Keep compact on small screens – tap opens WhatsApp directly */
+  .whatsapp-float:hover,
+  .whatsapp-float:focus-visible {
+    width: 54px;
+  }
+  .whatsapp-float:hover .whatsapp-float-label,
+  .whatsapp-float:focus-visible .whatsapp-float-label {
+    opacity: 0;
+    max-width: 0;
+    padding-right: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .whatsapp-float,
+  .whatsapp-float-label {
+    transition: none;
+  }
+}
