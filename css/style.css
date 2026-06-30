@@ -326,8 +326,9 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
   backdrop-filter: blur(14px);
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  padding: var(--space-7) var(--space-6);
+  justify-content: safe center;
+  padding: calc(var(--header-h) + var(--space-5)) var(--space-6) var(--space-7);
+  overflow-y: auto;
   transform: translateY(-100%);
   opacity: 0;
   transition: transform var(--dur-med) var(--ease-soft), opacity var(--dur-med) var(--ease-soft);
@@ -1022,6 +1023,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
   width: 58px;
   height: 58px;
   font-size: 1.7rem;
+  filter: brightness(0.8);
 }
 
 .whatsapp-float-label {
