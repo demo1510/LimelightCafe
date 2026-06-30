@@ -326,7 +326,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
   backdrop-filter: blur(14px);
   display: flex;
   flex-direction: column;
-  justify-content: safe center;
+  justify-content: flex-start;
   padding: calc(var(--header-h) + var(--space-5)) var(--space-6) var(--space-7);
   overflow-y: auto;
   transform: translateY(-100%);
@@ -358,7 +358,8 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
 .mobile-nav[data-state="open"] li:nth-child(6) .mobile-nav-link { transition-delay: 0.3s; }
 
 .mobile-nav-footer {
-  margin-top: var(--space-8);
+  margin-top: auto;
+  padding-top: var(--space-8);
   display: flex;
   flex-direction: column;
   gap: var(--space-5);
